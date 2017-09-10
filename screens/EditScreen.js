@@ -11,8 +11,17 @@ export default class EditScreen extends React.Component {
           <Image source={params} style={styles.picture} />
         </View>
         <View style={styles.pictures}>
+          <Image style={styles.miniPicture} source={require('../assets/images/amber.png')} />
           <Image style={styles.miniPicture} source={require('../assets/images/ayahuasca.jpg')} />
-          <Image style={styles.miniPicture} source={require('../assets/images/robot-prod.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/diamonds.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/flowers.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/grass.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/grass2.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/iguana.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/people.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/rose.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/space.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/swirls.png')} />
         </View>
       </View>
     );
