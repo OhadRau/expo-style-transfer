@@ -25,7 +25,7 @@ export default class HomeScreen extends React.Component {
     //this._interval = setInterval(this.capture.bind(this), 5000);
   }
 
-  componentWillUmount() {
+  componentWillUnmount() {
     //clearInterval(this._interval);
   }
   

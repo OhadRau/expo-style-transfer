@@ -8,6 +8,7 @@ import Colors from '../constants/Colors';
 import HomeScreen from '../screens/HomeScreen';
 import EditScreen from '../screens/EditScreen';
 import GalleryScreen from '../screens/GalleryScreen';
+import ViewScreen from '../screens/ViewScreen';
 
 export default TabNavigator(
   {
@@ -20,6 +21,9 @@ export default TabNavigator(
     Edit: {
       screen: EditScreen,
     },
+    View: {
+      screen: ViewScreen,
+    }
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -36,6 +40,11 @@ export default TabNavigator(
             iconName = Platform.OS === 'ios'
               ? `ios-albums${focused ? '' : '-outline'}`
               : 'md-albums';
+            break;
+          case 'View':
+            iconName = Platform.OS === 'ios'
+              ? `ios-photos${focused ? '' : '-outline'}`
+              : 'md-photos';
             break;
         }
         return (
