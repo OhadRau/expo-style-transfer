@@ -19,12 +19,6 @@ export default TabNavigator(
     },
     Edit: {
       screen: EditScreen,
-      navigationOptions: {
-        tabBarVisible: false,
-      }
-    },
-    Gallery: {
-      screen: GalleryScreen,
     },
   },
   {
@@ -38,7 +32,7 @@ export default TabNavigator(
               ? `ios-camera${focused ? '' : '-outline'}`
               : 'md-camera';
             break;
-          case 'Gallery':
+          case 'Edit':
             iconName = Platform.OS === 'ios'
               ? `ios-albums${focused ? '' : '-outline'}`
               : 'md-albums';
