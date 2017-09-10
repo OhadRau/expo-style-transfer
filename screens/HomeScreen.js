@@ -2,7 +2,6 @@ import React from 'react';
 import { Text, View, Platform, TouchableOpacity, Vibration } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Camera, FileSystem, Permissions } from 'expo';
-import ImageResizer from 'react-native-image-resizer';
 
 export default class HomeScreen extends React.Component {
   state = {
@@ -32,16 +31,16 @@ export default class HomeScreen extends React.Component {
   
   capture = async () => {
     if (this.camera) {
-      const data = await this.camera.takePictureAsync();
       const path = `${FileSystem.documentDirectory}temp/Photo_${this.state.photoId}.jpg`;
+      const data = await this.camera.takePictureAsync();
       await FileSystem.moveAsync({
         from: data,
         to: path,
       });
-      const uri = await ImageResizer.createResizedImage(path, 100, 56, 'JPEG', 80);
       this.setState({
         photoId: this.state.photoId + 1,
       });
+      this.props.navigation.navigate('Edit', {uri: path});
     }
   };
 

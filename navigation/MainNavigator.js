@@ -6,12 +6,19 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Colors from '../constants/Colors';
 
 import HomeScreen from '../screens/HomeScreen';
+import EditScreen from '../screens/EditScreen';
 import GalleryScreen from '../screens/GalleryScreen';
 
 export default TabNavigator(
   {
     Camera: {
       screen: HomeScreen,
+      navigationOptions: {
+        tabBarVisible: false,
+      }
+    },
+    Edit: {
+      screen: EditScreen,
       navigationOptions: {
         tabBarVisible: false,
       }
