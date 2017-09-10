@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, Platform, TouchableOpacity, Vibration } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Camera, FileSystem, Permissions } from 'expo';
+import ImageResizer from 'react-native-image-resizer';
 
 export default class HomeScreen extends React.Component {
   state = {
@@ -16,12 +17,13 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
+    FileSystem.deleteAsync(FileSystem.documentDirectory + 'temp');
     FileSystem.makeDirectoryAsync(
-      FileSystem.documentDirectory + 'photos'
+      FileSystem.documentDirectory + 'temp'
     ).catch(e => {
       console.log(e, 'Directory exists');
     });
-    this._interval = setInterval(this.capture.bind(this), 1000);
+    this._interval = setInterval(this.capture.bind(this), 5000);
   }
 
   componentWillUmount() {
@@ -31,13 +33,14 @@ export default class HomeScreen extends React.Component {
   capture = async () => {
     if (this.camera) {
       const data = await this.camera.takePictureAsync();
-      FileSystem.moveAsync({
+      const path = `${FileSystem.documentDirectory}temp/Photo_${this.state.photoId}.jpg`;
+      await FileSystem.moveAsync({
         from: data,
-        to: `${FileSystem.documentDirectory}photos/Photo_${this.state.photoId}.jpg`,
-      }).then(() => {
-        this.setState({
-          photoId: this.state.photoId + 1,
-        });
+        to: path,
+      });
+      const uri = await ImageResizer.createResizedImage(path, 100, 56, 'JPEG', 80);
+      this.setState({
+        photoId: this.state.photoId + 1,
       });
     }
   };

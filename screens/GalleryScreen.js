@@ -16,7 +16,7 @@ export default class GalleryScreen extends React.Component {
 
   componentDidMount() {
     FileSystem.readDirectoryAsync(
-      FileSystem.documentDirectory + 'photos'
+      FileSystem.documentDirectory + 'temp'
     ).then(photos => {
       this.setState({
         photos,
@@ -33,7 +33,7 @@ export default class GalleryScreen extends React.Component {
               <Image
                 style={styles.picture}
                 source={{
-                  uri: `${FileSystem.documentDirectory}photos/${photoUri}`,
+                  uri: `${FileSystem.documentDirectory}temp/${photoUri}`,
                 }}
                 key={photoUri}
               />
