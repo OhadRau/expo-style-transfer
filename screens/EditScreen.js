@@ -11,7 +11,7 @@ export default class EditScreen extends React.Component {
           <Image source={params} style={styles.picture} />
         </View>
         <View style={styles.pictures}>
-          <Image style={styles.miniPicture} source={require('../assets/images/robot-dev.png')} />
+          <Image style={styles.miniPicture} source={require('../assets/images/ayahuasca.jpg')} />
           <Image style={styles.miniPicture} source={require('../assets/images/robot-prod.png')} />
         </View>
       </View>
@@ -44,6 +44,6 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     margin: 5,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
   },
 });
