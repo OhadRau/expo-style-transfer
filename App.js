@@ -3,7 +3,7 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from './screens/HomeScreen';
-//import MainTabNavigation from './navigation/MainTabNavigator';
+import MainNavigation from './navigation/MainNavigator';
 
 export default class App extends React.Component {
   state = {
@@ -21,7 +21,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           <StatusBar hidden={true} />
-          <HomeScreen />
+          <MainNavigation />
         </View>
       );
     }

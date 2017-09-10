@@ -12,6 +12,9 @@ export default TabNavigator(
   {
     Camera: {
       screen: HomeScreen,
+      navigationOptions: {
+        tabBarVisible: false,
+      }
     },
     Gallery: {
       screen: GalleryScreen,

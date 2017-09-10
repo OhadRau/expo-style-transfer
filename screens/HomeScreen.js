@@ -23,11 +23,11 @@ export default class HomeScreen extends React.Component {
     ).catch(e => {
       console.log(e, 'Directory exists');
     });
-    this._interval = setInterval(this.capture.bind(this), 5000);
+    //this._interval = setInterval(this.capture.bind(this), 5000);
   }
 
   componentWillUmount() {
-    clearInterval(this._interval);
+    //clearInterval(this._interval);
   }
   
   capture = async () => {
@@ -78,6 +78,21 @@ export default class HomeScreen extends React.Component {
                   name={Platform.OS === 'ios'
                         ? `ios-swap`
                         : 'md-swap'}
+                  size={28}
+                  style={{ marginBottom: 10, color: 'white' }}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  flex: 0.1,
+                  alignSelf: 'flex-end',
+                  alignItems: 'center',
+                }}
+                onPress={this.capture.bind(this)}>
+                <Ionicons
+                  name={Platform.OS === 'ios'
+                        ? `ios-camera`
+                        : 'md-camera'}
                   size={28}
                   style={{ marginBottom: 10, color: 'white' }}
                 />
